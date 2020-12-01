@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  watchtower:
+    image: containrrr/watchtower:1.0.3
+    command: "-i 301 webapp --debug"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  webapp:
+    image: mastermindg/docker_web_app
+    container_name: webapp
+    ports:
+      - "8080:8080"
